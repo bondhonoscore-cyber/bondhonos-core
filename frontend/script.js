@@ -39,3 +39,24 @@ document.addEventListener("DOMContentLoaded", () => {
       systemState.accountStatus;
   }
 });
+// script.js
+
+// Load JSON data dynamically
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    const user = data.user;
+
+    // Update Dashboard
+    document.getElementById('user-earning').innerText = `$${user.earning}`;
+    document.getElementById('tasks-completed').innerText = user.tasksCompleted;
+    document.getElementById('account-status').innerText = user.accountStatus;
+    document.getElementById('upcoming-tasks').innerText = user.upcomingTasks;
+
+    // Remove "Monitoring in progress" text if data loaded
+    const locked = document.querySelector('.locked');
+    if (locked) locked.style.display = 'none';
+  })
+  .catch(err => {
+    console.error("Error loading dashboard data:", err);
+  });
