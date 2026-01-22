@@ -5,77 +5,50 @@
   <title>BondhonOS Admin Panel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-    }
-    header {
-      background: #020617;
-      padding: 16px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .card {
-      background: #020617;
-      margin: 10px;
-      padding: 20px;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 0 10px #00000050;
-    }
-    .label {
-      color: #94a3b8;
-      font-size: 14px;
-    }
-    .value {
-      font-size: 22px;
-      margin-top: 6px;
-    }
-    .status-active {
-      color: #22c55e;
-    }
-    .status-locked {
-      color: #38bdf8;
-    }
+    body { background:#0f172a; color:#e5e7eb; font-family:Arial; margin:0;}
+    header { background:#020617; padding:16px; text-align:center; font-size:22px; font-weight:bold; }
+    .container { display:flex; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+    .card { background:#020617; margin:10px; padding:20px; border-radius:10px; width:250px; box-shadow:0 0 10px #00000050; }
+    .label { color:#94a3b8; font-size:14px; }
+    .value { font-size:22px; margin-top:6px; }
+    .status-active { color:#22c55e; }
+    .status-locked { color:#38bdf8; }
   </style>
 </head>
 <body>
 
-<header>
-  BondhonOS Admin Panel
-</header>
+<header>BondhonOS Admin Panel</header>
 
 <div class="container">
   <div class="card">
     <div class="label">Total Users</div>
-    <div class="value">0</div>
+    <div class="value" id="total-users">10</div>
   </div>
 
   <div class="card">
     <div class="label">Total Earnings (Platform)</div>
-    <div class="value">$XX</div>
+    <div class="value" id="platform-earning">$5000</div>
   </div>
 
   <div class="card">
     <div class="label">Users Monitored</div>
-    <div class="value">0</div>
+    <div class="value" id="users-monitored">10</div>
   </div>
 
   <div class="card">
     <div class="label">Soft Launch Status</div>
-    <div class="value status-active">Active</div>
+    <div class="value status-active" id="launch-status">Active</div>
   </div>
 </div>
+
+<script>
+  // Step 6 – Admin simulation
+  const month4Unlocked = true;
+
+  if(month4Unlocked){
+    document.getElementById('platform-earning').innerText = `$5000`; // replace with backend real value
+  }
+</script>
 
 </body>
 </html>
