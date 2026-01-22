@@ -14,13 +14,4 @@ function saveAdmin() {
 
 function loadDashboard() {
   const raw = localStorage.getItem("bondhonos_core_data");
-  if (!raw) return;
-
-  const data = JSON.parse(raw);
-
-  if (data.month4) {
-    document.getElementById("user-earning").innerText = "$" + data.earning;
-    document.getElementById("tasks-completed").innerText = data.tasks;
-    document.getElementById("upcoming-tasks").innerText = data.upcoming;
-  }
-}
+  if (!raw) return
