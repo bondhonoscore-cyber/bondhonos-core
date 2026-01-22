@@ -1,19 +1,26 @@
-// Step 6 – Month-4 Controlled Unlock
-const month4Unlocked = true;
-const realEarning = 120; // Example earning
-const tasksCompleted = "3 / 10";
-const upcomingTasks = 2;
+// BondhonOS Core – Shared Frontend Logic
 
-if(month4Unlocked){
-    const userEarning = document.getElementById('user-earning');
-    if(userEarning) userEarning.innerText = `$${realEarning}`;
+function saveAdmin() {
+  const data = {
+    month4: document.getElementById("month4").checked,
+    earning: document.getElementById("earning").value,
+    tasks: document.getElementById("tasks").value,
+    upcoming: document.getElementById("upcoming").value
+  };
 
-    const tasks = document.getElementById('tasks-completed');
-    if(tasks) tasks.innerText = tasksCompleted;
+  localStorage.setItem("bondhonos_core_data", JSON.stringify(data));
+  alert("Admin data saved successfully");
+}
 
-    const upcoming = document.getElementById('upcoming-tasks');
-    if(upcoming) upcoming.innerText = upcomingTasks;
+function loadDashboard() {
+  const raw = localStorage.getItem("bondhonos_core_data");
+  if (!raw) return;
 
-    const locked = document.querySelector('.locked');
-    if(locked) locked.innerText = "Monetization activated";
+  const data = JSON.parse(raw);
+
+  if (data.month4) {
+    document.getElementById("user-earning").innerText = "$" + data.earning;
+    document.getElementById("tasks-completed").innerText = data.tasks;
+    document.getElementById("upcoming-tasks").innerText = data.upcoming;
+  }
 }
