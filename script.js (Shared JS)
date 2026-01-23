@@ -45,3 +45,58 @@ fetch('data.json')
     document.getElementById('upcoming-tasks').innerText = data.upcomingTasks;
   })
   .catch(err => console.error('JSON Load Error:', err));
+// Load data.json and update dashboard
+async function loadDashboard() {
+  const res = await fetch('data.json');
+  const data = await res.json();
+
+  document.getElementById('user-earning').innerText = `$${data.userEarning}`;
+  document.getElementById('tasks-completed').innerText = data.tasksCompleted;
+  document.getElementById('upcoming-tasks').innerText = data.upcomingTasks;
+  document.getElementById('account-status').innerText = data.accountStatus;
+
+  // Show locked note if Month-4 locked
+  if (!data.month4Unlocked) {
+    document.querySelector('.locked').innerText = 'Locked until Month-4';
+  } else {
+    document.querySelector('.locked').innerText = 'Monitoring in progress';
+  }
+}
+
+// Admin panel save
+async function saveAdmin() {
+  const month4 = document.getElementById('month4').checked;
+  const earning = document.getElementById('earning').value;
+  const tasks = document.getElementById('tasks').value;
+  const upcoming = document.getElementById('upcoming').value;
+
+  const updatedData = {
+    month4Unlocked: month4,
+    userEarning: Number(earning),
+    tasksCompleted: tasks,
+    upcomingTasks: Number(upcoming),
+    accountStatus: "Active"
+  };
+
+  // Save to localStorage for simulation (GitHub Pages cannot write files)
+  localStorage.setItem('dashboardData', JSON.stringify(updatedData));
+  alert('Admin values saved! Reload Dashboard to see changes.');
+}
+
+// Load from localStorage if exists
+function loadFromLocalStorage() {
+  const saved = localStorage.getItem('dashboardData');
+  if (saved) {
+    const data = JSON.parse(saved);
+    document.getElementById('user-earning').innerText = `$${data.userEarning}`;
+    document.getElementById('tasks-completed').innerText = data.tasksCompleted;
+    document.getElementById('upcoming-tasks').innerText = data.upcomingTasks;
+    document.getElementById('account-status').innerText = data.accountStatus;
+  }
+}
+
+// Run when dashboard loads
+window.onload = () => {
+  loadDashboard();
+  loadFromLocalStorage();
+};
