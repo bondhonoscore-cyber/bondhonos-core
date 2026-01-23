@@ -49,3 +49,9 @@ function addEarning() {
   earning = earning + 10;
   document.getElementById("user-earning").innerText = "$" + earning;
 }
+let earning = 0;
+
+function addEarning() {
+  earning = earning + 10;
+  document.getElementById("user-earning").innerText = "$" + earning;
+}
