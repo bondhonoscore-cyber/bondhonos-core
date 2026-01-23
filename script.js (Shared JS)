@@ -7,3 +7,18 @@ if (month4Unlocked) {
   document.getElementById("tasks-completed").innerText = "3 / 10";
   document.getElementById("upcoming-tasks").innerText = "2";
 }
+function updateDashboard() {
+  const earning = prompt("Enter Earnings ($):", "120");
+  const tasks = prompt("Enter Tasks Completed (example: 3 / 10):", "3 / 10");
+  const upcoming = prompt("Enter Upcoming Tasks:", "2");
+
+  if (earning !== null) {
+    document.getElementById("user-earning").innerText = `$${earning}`;
+  }
+  if (tasks !== null) {
+    document.getElementById("tasks-completed").innerText = tasks;
+  }
+  if (upcoming !== null) {
+    document.getElementById("upcoming-tasks").innerText = upcoming;
+  }
+}
