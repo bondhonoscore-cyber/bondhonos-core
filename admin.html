@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>BondhonOS Core – Admin Panel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>BondhonOS Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>BondhonOS Core – Admin Control</header>
 
-<div class="panel">
-  <label>Month-4 Unlock</label>
-  <input type="checkbox" id="month4" checked>
+<header>BondhonOS Core – Admin Panel</header>
 
-  <label>User Earnings ($)</label>
-  <input type="number" id="earning" value="120">
+<div class="container">
+  <div class="card">
+    <div class="label">Earnings ($)</div>
+    <input id="admin-earning" placeholder="120">
+  </div>
 
-  <label>Tasks Completed</label>
-  <input type="text" id="tasks" value="3 / 10">
+  <div class="card">
+    <div class="label">Tasks Completed</div>
+    <input id="admin-tasks" placeholder="3 / 10">
+  </div>
 
-  <label>Upcoming Tasks</label>
-  <input type="number" id="upcoming" value="2">
+  <div class="card">
+    <div class="label">Upcoming Tasks</div>
+    <input id="admin-upcoming" placeholder="2">
+  </div>
 
-  <button onclick="saveAdmin()">Save & Apply</button>
+  <div style="width:100%; text-align:center;">
+    <button onclick="saveAdminData()">Save & Apply</button>
+  </div>
+</div>
 
-  <div class="not
-function saveAdmin() {
-  const earning = document.getElementById('earning').value;
-  const tasks = document.getElementById('tasks').value.split('/')[0]; 
-  const totalTasks = document.getElementById('tasks').value.split('/')[1]; 
-  const accountStatus = "Active"; // যদি future এ চান, এখানে input বানাতে হবে
-  const upcoming = document.getElementById('upcoming').value;
-
-  const jsonData = {
-    earning: earning,
-    tasksCompleted: tasks,
-    totalTasks: totalTasks,
-    accountStatus: accountStatus,
-    upcomingTasks: upcoming
-  }
-
-  // ⚠️ বর্তমানে GitHub Pages এ write করা যাবে না
-  console.log("Updated JSON:", jsonData);
-  alert("Simulation Updated! (Live backend এ পরে যাবে)");
-}
+<script src="script.js"></script>
+</body>
+</html>
