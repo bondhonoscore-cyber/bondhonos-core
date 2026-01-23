@@ -34,3 +34,14 @@ function saveAdmin() {
 }
 
 loadDashboard();
+// Dashboard data load
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // JSON থেকে Dashboard update
+    document.getElementById('user-earning').innerText = `$${data.earning}`;
+    document.getElementById('tasks-completed').innerText = `${data.tasksCompleted} / ${data.totalTasks}`;
+    document.getElementById('account-status').innerText = data.accountStatus;
+    document.getElementById('upcoming-tasks').innerText = data.upcomingTasks;
+  })
+  .catch(err => console.error('JSON Load Error:', err));
