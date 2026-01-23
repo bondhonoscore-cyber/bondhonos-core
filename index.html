@@ -2,4 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BondhonOS Core Dashboard</title
+  <title>BondhonOS Core Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { background:#0f172a; color:#e5e7eb; font-family:Arial; margin:0;}
+    header { background:#020617; padding:16px; text-align:center; font-size:20px; font-weight:bold; }
+    .container { display:flex; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+    .card { background:#020617; margin:10px; padding:20px; border-radius:10px; width:220px; }
+    .label { color:#94a3b8; font-size:14px; }
+    .value { font-size:22px; margin-top:6px; }
+    button {
+      margin-top:12px;
+      width:100%;
+      padding:10px;
+      background:#38bdf8;
+      border:none;
+      border-radius:6px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>BondhonOS Core Dashboard</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="label">Your Earnings</div>
+    <div class="value" id="user-earning">$0</div>
+    <button onclick="addEarning()">+ Add $10</button>
+  </div>
+
+  <div class="card">
+    <div class="label">Tasks Completed</div>
+    <div class="value" id="tasks-completed">0 / 0</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Account Status</div>
+    <div class="value">Active</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Upcoming Tasks</div>
+    <div class="value" id="upcoming-tasks">0</div>
+  </div>
+
+</div>
+
+<script>
+  // earning value
+  let earning = 0;
+
+  function addEarning() {
+    earning = earning + 10;
+    document.getElementById("user-earning").innerText = "$" + earning;
+  }
+</script>
+
+</body>
+</html>
