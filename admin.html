@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>BondhonOS Core Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<title>BondhonOS Core – Admin Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<header>BondhonOS Core – Admin Control</header>
 
-<header>BondhonOS Core Dashboard</header>
+<div class="panel">
+  <label>Month-4 Unlock</label>
+  <input type="checkbox" id="month4" checked>
 
-<div class="container">
-  <div class="card">
-    <div class="label">Your Earnings</div>
-    <div class="value" id="user-earning">$XX</div>
-    <div class="locked">Monitoring in progress</div>
-  </div>
+  <label>User Earnings ($)</label>
+  <input type="number" id="earning" value="120">
 
-  <div class="card">
-    <div class="label">Tasks Completed</div>
-    <div class="value" id="tasks-completed">0 / 0</div>
-  </div>
+  <label>Tasks Completed</label>
+  <input type="text" id="tasks" value="3 / 10">
 
-  <div class="card">
-    <div class="label">Account Status</div>
-    <div class="value" id="account-status">Active</div>
-  </div>
+  <label>Upcoming Tasks</label>
+  <input type="number" id="upcoming" value="2">
 
-  <div class="card">
-    <div class="label">Upcoming Tasks</div>
-    <div class="value" id="upcoming-tasks">0</div>
+  <button onclick="saveAdmin()">Save & Apply</button>
+
+  <div class="note">
+    ⚠️ This panel controls frontend simulation only (no backend yet)
   </div>
 </div>
 
