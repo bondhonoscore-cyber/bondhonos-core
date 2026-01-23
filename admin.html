@@ -25,3 +25,22 @@
   <button onclick="saveAdmin()">Save & Apply</button>
 
   <div class="not
+function saveAdmin() {
+  const earning = document.getElementById('earning').value;
+  const tasks = document.getElementById('tasks').value.split('/')[0]; 
+  const totalTasks = document.getElementById('tasks').value.split('/')[1]; 
+  const accountStatus = "Active"; // যদি future এ চান, এখানে input বানাতে হবে
+  const upcoming = document.getElementById('upcoming').value;
+
+  const jsonData = {
+    earning: earning,
+    tasksCompleted: tasks,
+    totalTasks: totalTasks,
+    accountStatus: accountStatus,
+    upcomingTasks: upcoming
+  }
+
+  // ⚠️ বর্তমানে GitHub Pages এ write করা যাবে না
+  console.log("Updated JSON:", jsonData);
+  alert("Simulation Updated! (Live backend এ পরে যাবে)");
+}
