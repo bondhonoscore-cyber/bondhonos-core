@@ -1,29 +1,36 @@
-// Default frontend values
-let month4Unlocked = true;
-let realEarning = 120;
-let tasksCompleted = "3 / 10";
-let upcomingTasks = 2;
-
-// Load dashboard values
 function loadDashboard() {
-  if(month4Unlocked){
-    document.getElementById('user-earning').innerText = `$${realEarning}`;
-    document.getElementById('tasks-completed').innerText = tasksCompleted;
-    document.getElementById('upcoming-tasks').innerText = upcomingTasks;
+  const data = JSON.parse(localStorage.getItem('bondhonData')) || {
+    month4Unlocked: true,
+    earning: 120,
+    tasks: "3 / 10",
+    upcoming: 2,
+    accountStatus: "Active"
+  };
+
+  if(data.month4Unlocked){
+    document.getElementById('user-earning').innerText = `$${data.earning}`;
+    document.getElementById('tasks-completed').innerText = data.tasks;
+    document.getElementById('upcoming-tasks').innerText = data.upcoming;
+    document.getElementById('account-status').innerText = data.accountStatus;
+  } else {
+    document.getElementById('user-earning').innerText = `$XX`;
+    document.getElementById('tasks-completed').innerText = "0 / 0";
+    document.getElementById('upcoming-tasks').innerText = "0";
+    document.getElementById('account-status').innerText = "Locked";
   }
 }
 
-// Save values from Admin Panel
 function saveAdmin() {
-  month4Unlocked = document.getElementById('month4').checked;
-  realEarning = Number(document.getElementById('earning').value);
-  tasksCompleted = document.getElementById('tasks').value;
-  upcomingTasks = Number(document.getElementById('upcoming').value);
-  alert("Dashboard updated!");
-  loadDashboard();
+  const data = {
+    month4Unlocked: document.getElementById('month4').checked,
+    earning: parseInt(document.getElementById('earning').value),
+    tasks: document.getElementById('tasks').value,
+    upcoming: parseInt(document.getElementById('upcoming').value),
+    accountStatus: "Active"
+  };
+
+  localStorage.setItem('bondhonData', JSON.stringify(data));
+  alert("Saved! Dashboard will reflect changes on reload.");
 }
 
-// Load dashboard on page load
-if(document.getElementById('user-earning')){
-  loadDashboard();
-}
+loadDashboard();
