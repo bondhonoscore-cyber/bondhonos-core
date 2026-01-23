@@ -43,3 +43,9 @@ window.onload = function () {
   if (tasks) document.getElementById("tasks-completed").innerText = tasks;
   if (upcoming) document.getElementById("upcoming-tasks").innerText = upcoming;
 };
+let earning = 0;
+
+function addEarning() {
+  earning = earning + 10;
+  document.getElementById("user-earning").innerText = "$" + earning;
+}
