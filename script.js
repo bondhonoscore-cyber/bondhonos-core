@@ -17,5 +17,4 @@ window.onload = function () {
 
   if (earning) document.getElementById("user-earning").innerText = `$${earning}`;
   if (tasks) document.getElementById("tasks-completed").innerText = tasks;
-  if (upcoming) document.getElementById("upcoming-tasks").innerText = upcoming;
-};
+  if (upcoming) document.getElementById("upcoming-tasks").innerText = upcomi
