@@ -1,0 +1,27 @@
+// Initial dashboard values
+let month4Unlocked = true;
+let realEarning = 120;
+let tasksCompleted = 3;
+let totalTasks = 10;
+let upcomingTasks = 2;
+
+// Load Dashboard with current values
+function loadDashboard() {
+  document.getElementById('user-earning').innerText = `$${realEarning}`;
+  document.getElementById('tasks-completed').innerText = `${tasksCompleted} / ${totalTasks}`;
+  document.getElementById('upcoming-tasks').innerText = `${upcomingTasks}`;
+}
+
+// Admin save function (frontend simulation)
+function saveAdmin() {
+  month4Unlocked = document.getElementById('month4').checked;
+  realEarning = Number(document.getElementById('earning').value);
+  
+  let tasks = document.getElementById('tasks').value.split('/');
+  tasksCompleted = Number(tasks[0].trim());
+  totalTasks = Number(tasks[1].trim());
+  
+  upcomingTasks = Number(document.getElementById('upcoming').value);
+
+  alert('Values updated! Now open Dashboard to see changes.');
+}
