@@ -1,35 +1,53 @@
-// ===== DASHBOARD ONLY =====
-let currentEarning = localStorage.getItem("earning")
+// ===== CONFIG =====
+const TOTAL_TASK = 10;
+
+// ===== LOAD SAVED DATA =====
+let earning = localStorage.getItem("earning")
   ? parseInt(localStorage.getItem("earning"))
   : 0;
 
-window.onload = function () {
-  document.getElementById("user-earning").innerText = "$" + currentEarning;
-};
-
-function addEarning() {
-  currentEarning += 10;
-  localStorage.setItem("earning", currentEarning);
-  document.getElementById("user-earning").innerText = "$" + currentEarning;
-}
-// ===== TASK SYSTEM =====
-let completedTasks = localStorage.getItem("tasks")
-  ? parseInt(localStorage.getItem("tasks"))
+let completedTask = localStorage.getItem("task")
+  ? parseInt(localStorage.getItem("task"))
   : 0;
 
-const totalTasks = 10;
-
+// ===== PAGE LOAD =====
 window.onload = function () {
-  document.getElementById("user-earning").innerText = "$" + currentEarning;
-  document.getElementById("tasks-completed").innerText =
-    completedTasks + " / " + totalTasks;
+  updateUI();
 };
 
-function addTask() {
-  if (completedTasks < totalTasks) {
-    completedTasks++;
-    localStorage.setItem("tasks", completedTasks);
-    document.getElementById("tasks-completed").innerText =
-      completedTasks + " / " + totalTasks;
+// ===== UPDATE UI =====
+function updateUI() {
+  document.getElementById("user-earning").innerText = "$" + earning;
+  document.getElementById("tasks-completed").innerText =
+    completedTask + " / " + TOTAL_TASK;
+
+  if (completedTask >= TOTAL_TASK) {
+    document.getElementById("account-status").innerText = "Completed";
+  } else {
+    document.getElementById("account-status").innerText = "Active";
   }
+}
+
+// ===== ADD EARNING =====
+function addEarning() {
+  if (completedTask >= TOTAL_TASK) {
+    alert("Task completed! Earnings locked 🔒");
+    return;
+  }
+
+  earning += 10;
+  localStorage.setItem("earning", earning);
+  updateUI();
+}
+
+// ===== ADD TASK =====
+function addTask() {
+  if (completedTask >= TOTAL_TASK) {
+    alert("All tasks completed ✅");
+    return;
+  }
+
+  completedTask += 1;
+  localStorage.setItem("task", completedTask);
+  updateUI();
 }
