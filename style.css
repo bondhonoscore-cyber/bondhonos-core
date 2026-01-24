@@ -1,0 +1,84 @@
+/* ===== BondhonOS Core – Global Style ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* ===== Header ===== */
+header {
+  background: #020617;
+  padding: 16px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* ===== Dashboard Layout ===== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* ===== Card ===== */
+.card {
+  background: #020617;
+  width: 220px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* ===== Text ===== */
+.label {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.locked {
+  font-size: 13px;
+  color: #38bdf8;
+  margin-top: 8px;
+}
+
+/* ===== Button ===== */
+button {
+  margin-top: 12px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+/* ===== Mobile Friendly ===== */
+@media (max-width: 500px) {
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
