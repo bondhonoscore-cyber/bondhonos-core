@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BondhonOS Core Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>BondhonOS Core Dashboard</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="label">Your Earnings</div>
+    <div class="value" id="user-earning">$0</div>
+    <button onclick="addEarning()">+ Add $10</button>
+  </div>
+
+  <div class="card">
+    <div class="label">Tasks Completed</div>
+    <div class="value" id="tasks-completed">0 / 10</div>
+    <button onclick="addTask()">+ Add Task</button>
+  </div>
+
+  <div class="card">
+    <div class="label">Account Status</div>
+    <div class="value" id="account-status">Active</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Upcoming Tasks</div>
+    <div class="value" id="upcoming-tasks">0</div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
