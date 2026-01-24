@@ -74,8 +74,4 @@ function saveAdminData() {
   earning = adminEarning;
   completedTask = adminTasks;
 
-  localStorage.setItem("earning", earning);
-  localStorage.setItem("task", completedTask);
-
-  updateUI();
-  alert("Admin data saved! Dashboard up
+  localStorage.setItem("earning", earnin
