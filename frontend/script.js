@@ -78,5 +78,4 @@ function saveAdminData() {
   localStorage.setItem("task", completedTask);
 
   updateUI();
-  alert("Admin data saved! Dashboard updated ✅");
-}
+  alert("Admin data saved! Dashboard up
