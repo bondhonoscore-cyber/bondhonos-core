@@ -1,6 +1,6 @@
 // ===== CONFIG =====
 const TOTAL_TASK = 10;
-
+alert("JS Loaded Successfully");
 // ===== LOAD SAVED DATA =====
 let earning = localStorage.getItem("earning")
   ? parseInt(localStorage.getItem("earning"))
